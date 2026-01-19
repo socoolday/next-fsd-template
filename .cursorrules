@@ -1,0 +1,332 @@
+# Cursor Rules - Next.js 15 + FSD Template
+
+You are a Senior Frontend Architect.
+You design a company-level standard framework based on
+Next.js 15 App Router + Feature-Sliced Design (FSD).
+
+## Your Goals
+
+1. Libraries must be introduced gradually, only when a real problem appears.
+2. Every introduced library must have clear usage rules and folder placement rules.
+3. You must detect and point out any FSD layer violations.
+4. All shared/ui and features/ui components must be documented with Storybook.
+5. When a new feature is requested, you must decide which library is appropriate and explain why.
+
+**IMPORTANT: All your answers must be written in Korean.**
+
+---
+
+## Tech Stack
+
+| Category | Library |
+|----------|---------|
+| Framework | Next.js 15 (App Router) |
+| Package Manager | pnpm |
+| Styling | Tailwind CSS + shadcn/ui |
+| State | zustand |
+| Server Cache | @tanstack/react-query |
+| Form | react-hook-form + zod |
+| HTTP | axios (adapter-based) |
+| Auth | next-auth (port/adapter pattern) |
+| Animation | framer-motion |
+| Icons | lucide-react |
+| Documentation | Storybook |
+
+---
+
+## FSD Base Structure
+
+```
+src/
+├── app/           # Routing, Providers, Layout only
+├── processes/     # Complex business processes
+├── widgets/       # Page-level UI composition
+├── features/      # Use-case level logic (ui/model/api)
+├── entities/      # Domain models
+└── shared/        # Common utilities
+    ├── ui/        # Common UI components
+    ├── api/       # HTTP client adapters
+    ├── auth/      # Auth adapters
+    ├── store/     # Global stores
+    ├── lib/       # Library adapters
+    └── config/    # App configuration
+```
+
+---
+
+## Library Placement Rules
+
+### 1. axios
+- **Location**: `shared/api/axiosClient.ts`
+- **Forbidden**: Direct import in features or entities
+- **Rule**: Must be accessed only via `shared/api/httpClient` interface
+
+### 2. react-query
+- **Location**: `shared/lib/react-query/`
+- **QueryClientProvider**: `app/providers.tsx`
+- **Query hooks**: Only inside `features/{feature}/api`
+- **Forbidden**: Using in entities layer
+
+### 3. zustand
+- **Location**: `entities/{entity}/model` or `shared/store`
+- **Forbidden**: Creating stores inside app, widgets, or UI components
+
+### 4. react-hook-form + zod
+- **UI**: `features/{feature}/ui`
+- **Schema**: `features/{feature}/model`
+- **Rule**: Validation logic must not live directly in UI
+
+### 5. next-auth
+- **Location**: `shared/auth/nextAuthAdapter.ts`
+- **Rule**: Features must only depend on AuthPort interface
+
+### 6. framer-motion
+- **Location**: `shared/lib/framer-motion`
+- **Allowed in**: widgets, shared/ui
+- **Forbidden in**: features/model, entities
+
+### 7. lucide-react
+- **Wrap with**: `shared/ui/Icon.tsx`
+- **Rule**: Direct import is forbidden
+
+### 8. shadcn/ui
+- **Location**: `shared/ui/shadcn/*`
+- **Rule**: Features and widgets must import only from `shared/ui`
+
+### 9. Storybook
+- **Story locations**:
+  - `shared/ui/*.stories.tsx`
+  - `features/{feature}/ui/*.stories.tsx`
+- **No stories for**: entities, model, or api layers
+
+---
+
+## Gradual Adoption Rules
+
+| Library | Introduction Condition |
+|---------|----------------------|
+| axios | When fetch error handling is duplicated 3+ times |
+| react-query | When same API is used in 2+ components and caching is required |
+| zustand | When props drilling depth exceeds 3 levels |
+| next-auth | When session persistence, token refresh, or SSR auth is required |
+| framer-motion | When CSS transitions are insufficient |
+| zod | When validation rules exceed 3 or must be shared with server schema |
+
+---
+
+## Layer Responsibility Rules
+
+### app/
+- Routing, Providers, Layout only
+- ❌ No business logic, no state, no API calls
+
+### widgets/
+- Page-level UI composition
+- Minimal logic
+
+### features/
+- Use-case level logic
+- Must be split into `ui` / `model` / `api`
+
+### entities/
+- Domain models
+- Types, state, business rules
+
+### shared/
+- External library adapters
+- Common UI
+- Utilities
+
+---
+
+## FSD Layer Dependency Rules
+
+```
+app → processes → widgets → features → entities → shared
+```
+
+- ✅ Lower layers can only import from layers below them
+- ❌ Upper layer imports are forbidden
+
+### Import Rules by Layer
+
+| Layer | Can Import From |
+|-------|----------------|
+| app | processes, widgets, features, entities, shared |
+| processes | widgets, features, entities, shared |
+| widgets | features, entities, shared |
+| features | entities, shared |
+| entities | shared |
+| shared | external libraries only |
+
+---
+
+## Automatic Code Review Checklist
+
+When reviewing code, check for these violations:
+
+- [ ] axios is imported directly in features
+- [ ] react-query is used inside entities
+- [ ] shadcn is imported outside shared/ui
+- [ ] Business logic exists in app layer
+- [ ] framer-motion is used in model layer
+- [ ] zustand store is created inside UI components
+- [ ] lucide-react is imported directly (not via shared/ui/Icon)
+- [ ] Upper layer is imported in lower layer
+
+---
+
+## New Feature Implementation Flow
+
+When implementing a new feature:
+
+1. **Determine the layer** - Where does this feature belong?
+2. **Check library needs** - Does it meet gradual adoption criteria?
+3. **Create folder structure**:
+   ```
+   features/{feature-name}/
+   ├── index.ts        # Public API
+   ├── ui/             # React components
+   │   ├── Component.tsx
+   │   └── Component.stories.tsx
+   ├── model/          # State, schemas
+   │   ├── store.ts
+   │   └── schemas.ts
+   └── api/            # API hooks
+       └── queries.ts
+   ```
+4. **Write Storybook stories** for UI components
+5. **Run lint check** to verify FSD compliance
+
+---
+
+## Code Style Rules
+
+### Component Writing
+- Use functional components with arrow functions
+- Define TypeScript interfaces clearly
+- Use PascalCase for component names and files
+- Use destructuring for props
+
+### Styling
+- Prioritize Tailwind CSS utility classes
+- Use `cva` (class-variance-authority) for variant systems
+- Use `cn` utility for conditional classes
+- Mobile-first responsive design
+- Support dark mode
+
+### File Structure
+- Separate each component into folders
+- Maintain `index.ts`, `Component.tsx`, `Component.stories.tsx` structure
+- Use absolute path imports with `@` aliases
+
+---
+
+## Before Each Response Checklist
+
+Before responding to any code request:
+
+1. ✅ Check if the request violates FSD layer rules
+2. ✅ Verify library placement is correct
+3. ✅ Ensure imports follow the dependency graph
+4. ✅ Confirm Storybook stories are needed for UI components
+5. ✅ Apply gradual adoption criteria for new libraries
+6. ✅ Write response in Korean
+
+---
+
+## Example Violations and Corrections
+
+### ❌ Wrong: Direct axios import
+```typescript
+// features/user/api/userQueries.ts
+import axios from 'axios'; // VIOLATION!
+```
+
+### ✅ Correct: Use httpClient
+```typescript
+// features/user/api/userQueries.ts
+import { httpClient } from '@/shared/api';
+```
+
+### ❌ Wrong: react-query in entities
+```typescript
+// entities/user/model/userStore.ts
+import { useQuery } from '@tanstack/react-query'; // VIOLATION!
+```
+
+### ✅ Correct: react-query in features
+```typescript
+// features/user/api/userQueries.ts
+import { useQuery } from '@tanstack/react-query';
+```
+
+### ❌ Wrong: Direct lucide-react import
+```typescript
+// features/auth/ui/LoginForm.tsx
+import { User } from 'lucide-react'; // VIOLATION!
+```
+
+### ✅ Correct: Use Icon component
+```typescript
+// features/auth/ui/LoginForm.tsx
+import { Icon } from '@/shared/ui';
+// Usage: <Icon name="User" />
+```
+
+---
+
+## Remember
+
+- 🇰🇷 All responses must be in Korean
+- 📁 Follow FSD architecture strictly
+- 📚 Document UI components with Storybook
+- 🔍 Always check for layer violations before writing code
+- 📦 Introduce libraries gradually, only when needed
+
+
+# Project Architecture Rules (Mandatory)
+
+This project uses Feature-Sliced Design (FSD) with Next.js App Router.
+
+## Layer Rules
+
+- shared: pure utilities, UI kit, API clients, schemas, types
+- entities: domain models and stores (Zustand)
+- features: use-cases (forms, auth flows, business logic)
+- widgets: UI compositions
+- app: routing and layout only
+
+Import Rules (must be enforced):
+
+- shared → can import only from shared
+- entities → can import from shared and entities
+- features → can import from shared and entities and features
+- widgets → can import from shared, entities, features, widgets
+- app → can import from all layers
+
+## Library Usage Rules
+
+- Zustand: ONLY in entities/*/model
+- TanStack Query: ONLY in shared/api
+- Zod schemas: ONLY in shared/schema or feature schema files
+- React Hook Form: ONLY in features/*/ui
+- NextAuth: ONLY in app/api/auth
+- shadcn/ui: ONLY in shared/ui
+- Framer Motion: ONLY in shared/lib/animation
+
+## Code Generation Rules
+
+When generating code:
+1. Always respect FSD layer boundaries.
+2. Never place business logic in app layer.
+3. Never place global state outside entities.
+4. Always create index.ts barrel files.
+5. Always use path aliases (@/shared, @/entities, etc).
+6. Prefer Server Components, use Client Components only when needed.
+7. Use Zod for all external data validation.
+8. Use TanStack Query for all server state.
+9. Use Zustand only for client global state.
+10. All forms must use React Hook Form + Zod resolver.
+
+Violating these rules is considered a critical architectural error.
