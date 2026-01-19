@@ -1,4 +1,9 @@
 import type { StorybookConfig } from '@storybook/nextjs-vite';
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const config: StorybookConfig = {
   stories: [
@@ -19,6 +24,13 @@ const config: StorybookConfig = {
   viteFinal: async (config) => {
     return {
       ...config,
+      resolve: {
+        ...config.resolve,
+        alias: {
+          ...config.resolve?.alias,
+          '@': path.resolve(__dirname, '../src'),
+        },
+      },
       optimizeDeps: {
         ...config.optimizeDeps,
         include: [
@@ -31,10 +43,19 @@ const config: StorybookConfig = {
           '@radix-ui/react-progress',
           '@radix-ui/react-scroll-area',
           '@radix-ui/react-toast',
+          '@radix-ui/react-toggle',
+          '@radix-ui/react-toggle-group',
+          '@radix-ui/react-navigation-menu',
+          '@radix-ui/react-context-menu',
+          '@radix-ui/react-hover-card',
+          '@radix-ui/react-collapsible',
+          '@radix-ui/react-aspect-ratio',
           'react-day-picker',
           'date-fns',
           'date-fns/locale',
           'sonner',
+          'vaul',
+          'cmdk',
         ],
       },
     };

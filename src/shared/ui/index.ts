@@ -20,8 +20,21 @@ export {
 // Badge
 export { Badge, badgeVariants, type BadgeProps } from "./badge";
 
+// Alert
+export { Alert, AlertTitle, AlertDescription } from "./alert";
+
 // Avatar
-export { Avatar, AvatarImage, AvatarFallback } from "./avatar";
+export {
+  Avatar,
+  AvatarImage,
+  AvatarFallback,
+  AvatarStatusBadge,
+  AvatarWithStatus,
+  avatarVariants,
+  avatarStatusVariants,
+  type AvatarStatus,
+  type AvatarSize,
+} from "./avatar";
 
 // Checkbox
 export { Checkbox } from "./checkbox";
@@ -34,6 +47,12 @@ export { Switch } from "./switch";
 
 // Slider
 export { Slider } from "./slider";
+
+// Toggle
+export { Toggle, toggleVariants } from "./toggle";
+
+// ToggleGroup
+export { ToggleGroup, ToggleGroupItem } from "./toggle-group";
 
 // Label
 export { Label } from "./label";
@@ -84,8 +103,25 @@ export {
   SheetDescription,
 } from "./sheet";
 
+// Drawer
+export {
+  Drawer,
+  DrawerPortal,
+  DrawerOverlay,
+  DrawerTrigger,
+  DrawerClose,
+  DrawerContent,
+  DrawerHeader,
+  DrawerFooter,
+  DrawerTitle,
+  DrawerDescription,
+} from "./drawer";
+
 // Popover
 export { Popover, PopoverTrigger, PopoverContent, PopoverAnchor } from "./popover";
+
+// HoverCard
+export { HoverCard, HoverCardTrigger, HoverCardContent } from "./hover-card";
 
 // Select
 export {
@@ -101,11 +137,27 @@ export {
   SelectScrollDownButton,
 } from "./select";
 
+// Command
+export {
+  Command,
+  CommandDialog,
+  CommandInput,
+  CommandList,
+  CommandEmpty,
+  CommandGroup,
+  CommandItem,
+  CommandShortcut,
+  CommandSeparator,
+} from "./command";
+
 // Tabs
 export { Tabs, TabsList, TabsTrigger, TabsContent } from "./tabs";
 
 // Accordion
 export { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "./accordion";
+
+// Collapsible
+export { Collapsible, CollapsibleTrigger, CollapsibleContent } from "./collapsible";
 
 // Tooltip
 export {
@@ -133,6 +185,38 @@ export {
   DropdownMenuSubTrigger,
   DropdownMenuRadioGroup,
 } from "./dropdown-menu";
+
+// Context Menu
+export {
+  ContextMenu,
+  ContextMenuTrigger,
+  ContextMenuContent,
+  ContextMenuItem,
+  ContextMenuCheckboxItem,
+  ContextMenuRadioItem,
+  ContextMenuLabel,
+  ContextMenuSeparator,
+  ContextMenuShortcut,
+  ContextMenuGroup,
+  ContextMenuPortal,
+  ContextMenuSub,
+  ContextMenuSubContent,
+  ContextMenuSubTrigger,
+  ContextMenuRadioGroup,
+} from "./context-menu";
+
+// Navigation Menu
+export {
+  navigationMenuTriggerStyle,
+  NavigationMenu,
+  NavigationMenuList,
+  NavigationMenuItem,
+  NavigationMenuContent,
+  NavigationMenuTrigger,
+  NavigationMenuLink,
+  NavigationMenuIndicator,
+  NavigationMenuViewport,
+} from "./navigation-menu";
 
 // Toast
 export { Toaster, toast } from "./toast";
@@ -179,6 +263,9 @@ export { Progress } from "./progress";
 
 // ScrollArea
 export { ScrollArea, ScrollBar } from "./scroll-area";
+
+// AspectRatio
+export { AspectRatio } from "./aspect-ratio";
 
 // Calendar
 export { Calendar, type CalendarProps } from "./calendar";
