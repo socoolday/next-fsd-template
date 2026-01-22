@@ -10,7 +10,7 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
 } from "./AlertDialog";
-import { Button } from "@/shared/ui/button";
+import { Button } from "../button/Button";
 
 const meta: Meta<typeof AlertDialog> = {
   title: "shared/ui/AlertDialog",
@@ -27,7 +27,7 @@ const meta: Meta<typeof AlertDialog> = {
 };
 
 export default meta;
-type Story = StoryObj<typeof meta>;
+type Story = StoryObj<typeof AlertDialog>;
 
 export const Default: Story = {
   render: () => (

@@ -83,11 +83,13 @@ export const WithAction: Story = {
   ),
 };
 
-export const Promise: Story = {
+export const PromiseToast: Story = {
   render: () => (
     <Button
       onClick={() => {
-        const promise = new Promise((resolve) => setTimeout(resolve, 2000));
+        const promise = new Promise<void>((resolve: () => void) => {
+          setTimeout(() => resolve(), 2000);
+        });
         toast.promise(promise, {
           loading: "로딩 중...",
           success: "완료되었습니다!",

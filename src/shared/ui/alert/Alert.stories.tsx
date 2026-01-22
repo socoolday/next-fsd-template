@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
-import { Icon } from "@/shared/ui/icon";
+import { Icon } from "../icon/Icon";
 import { Alert, AlertTitle, AlertDescription } from "./Alert";
 
 const meta: Meta<typeof Alert> = {
@@ -24,7 +24,7 @@ const meta: Meta<typeof Alert> = {
 };
 
 export default meta;
-type Story = StoryObj<typeof meta>;
+type Story = StoryObj<typeof Alert>;
 
 /**
  * 기본 Alert 스타일

@@ -17,7 +17,7 @@ const meta: Meta<typeof Toggle> = {
   argTypes: {
     variant: {
       control: "select",
-      options: ["default", "outline"],
+      options: ["default", "outline", "primary", "secondary", "destructive"],
       description: "Toggle 버튼의 스타일 변형",
     },
     size: {
@@ -100,6 +100,39 @@ export const Sizes: Story = {
 };
 
 /**
+ * Primary 색상
+ */
+export const Primary: Story = {
+  render: () => (
+    <Toggle variant="primary" aria-label="Toggle bold">
+      <Icon name="Bold" className="h-4 w-4" />
+    </Toggle>
+  ),
+};
+
+/**
+ * Secondary 색상
+ */
+export const Secondary: Story = {
+  render: () => (
+    <Toggle variant="secondary" aria-label="Toggle italic">
+      <Icon name="Italic" className="h-4 w-4" />
+    </Toggle>
+  ),
+};
+
+/**
+ * Destructive 색상
+ */
+export const Destructive: Story = {
+  render: () => (
+    <Toggle variant="destructive" aria-label="Toggle underline">
+      <Icon name="Underline" className="h-4 w-4" />
+    </Toggle>
+  ),
+};
+
+/**
  * 모든 변형 모아보기
  */
 export const AllVariants: Story = {
@@ -126,6 +159,42 @@ export const AllVariants: Story = {
           <Icon name="Italic" className="h-4 w-4" />
         </Toggle>
         <Toggle variant="outline" aria-label="Toggle underline">
+          <Icon name="Underline" className="h-4 w-4" />
+        </Toggle>
+      </div>
+      <div className="flex items-center gap-2">
+        <span className="text-sm w-24">Primary:</span>
+        <Toggle variant="primary" aria-label="Toggle bold">
+          <Icon name="Bold" className="h-4 w-4" />
+        </Toggle>
+        <Toggle variant="primary" aria-label="Toggle italic">
+          <Icon name="Italic" className="h-4 w-4" />
+        </Toggle>
+        <Toggle variant="primary" aria-label="Toggle underline">
+          <Icon name="Underline" className="h-4 w-4" />
+        </Toggle>
+      </div>
+      <div className="flex items-center gap-2">
+        <span className="text-sm w-24">Secondary:</span>
+        <Toggle variant="secondary" aria-label="Toggle bold">
+          <Icon name="Bold" className="h-4 w-4" />
+        </Toggle>
+        <Toggle variant="secondary" aria-label="Toggle italic">
+          <Icon name="Italic" className="h-4 w-4" />
+        </Toggle>
+        <Toggle variant="secondary" aria-label="Toggle underline">
+          <Icon name="Underline" className="h-4 w-4" />
+        </Toggle>
+      </div>
+      <div className="flex items-center gap-2">
+        <span className="text-sm w-24">Destructive:</span>
+        <Toggle variant="destructive" aria-label="Toggle bold">
+          <Icon name="Bold" className="h-4 w-4" />
+        </Toggle>
+        <Toggle variant="destructive" aria-label="Toggle italic">
+          <Icon name="Italic" className="h-4 w-4" />
+        </Toggle>
+        <Toggle variant="destructive" aria-label="Toggle underline">
           <Icon name="Underline" className="h-4 w-4" />
         </Toggle>
       </div>

@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
 import { Checkbox } from "./Checkbox";
-import { Label } from "@/shared/ui/label";
+import { Label } from "../label";
 
 /**
  * Checkbox 컴포넌트는 사용자가 옵션을 선택하거나 선택 해제할 수 있는 폼 요소입니다.
@@ -156,7 +156,7 @@ export const CardStyle: Story = {
         <label
           key={plan.id}
           htmlFor={plan.id}
-          className="flex items-start space-x-3 rounded-lg border p-4 cursor-pointer hover:bg-muted/50 has-[:checked]:border-primary has-[:checked]:bg-primary/5"
+          className="flex items-start space-x-3 rounded-lg border p-4 cursor-pointer hover:bg-muted/50 has-checked:border-primary has-checked:bg-primary/5"
         >
           <Checkbox id={plan.id} className="mt-1" />
           <div>

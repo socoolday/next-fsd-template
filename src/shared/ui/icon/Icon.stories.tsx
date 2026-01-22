@@ -123,7 +123,7 @@ export const CommonIcons: Story = {
   render: () => (
     <div className="grid grid-cols-5 gap-6">
       <div className="flex flex-col items-center gap-2">
-        <Icon name="Home" size={24} />
+        <Icon name="House" size={24} />
         <span className="text-xs text-muted-foreground">Home</span>
       </div>
       <div className="flex flex-col items-center gap-2">
@@ -151,7 +151,7 @@ export const CommonIcons: Story = {
         <span className="text-xs text-muted-foreground">Plus</span>
       </div>
       <div className="flex flex-col items-center gap-2">
-        <Icon name="Edit" size={24} />
+        <Icon name="Pencil" size={24} />
         <span className="text-xs text-muted-foreground">Edit</span>
       </div>
       <div className="flex flex-col items-center gap-2">

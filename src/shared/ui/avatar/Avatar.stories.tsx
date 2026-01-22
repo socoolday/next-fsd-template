@@ -346,7 +346,7 @@ export const ColoredFallbacks: Story = {
         <AvatarFallback className="bg-purple-500 text-white">GH</AvatarFallback>
       </Avatar>
       <Avatar>
-        <AvatarFallback className="bg-gradient-to-br from-pink-500 to-orange-500 text-white">
+        <AvatarFallback className="bg-linear-to-br from-pink-500 to-orange-500 text-white">
           IJ
         </AvatarFallback>
       </Avatar>

@@ -303,7 +303,7 @@ export const Loading: Story = {
     <div className="flex items-center space-x-2">
       <Switch disabled />
       <Label className="font-normal text-muted-foreground">저장 중...</Label>
-      <Icon name="Loader2" className="h-4 w-4 animate-spin text-muted-foreground" />
+      <Icon name="Loader" className="h-4 w-4 animate-spin text-muted-foreground" />
     </div>
   ),
 };

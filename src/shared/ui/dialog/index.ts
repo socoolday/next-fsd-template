@@ -9,4 +9,5 @@ export {
   DialogFooter,
   DialogTitle,
   DialogDescription,
+  type DialogContentProps,
 } from "./Dialog";

@@ -21,13 +21,21 @@ const config: StorybookConfig = {
   staticDirs: [
     "../public"
   ],
+  typescript: {
+    check: false,
+    reactDocgen: "react-docgen-typescript",
+    reactDocgenTypescriptOptions: {
+      shouldExtractLiteralValuesFromEnum: true,
+      propFilter: (prop) => (prop.parent ? !/node_modules/.test(prop.parent.fileName) : true),
+    },
+  },
   viteFinal: async (config) => {
     return {
       ...config,
       resolve: {
         ...config.resolve,
         alias: {
-          ...config.resolve?.alias,
+          ...(config.resolve?.alias || {}),
           '@': path.resolve(__dirname, '../src'),
         },
       },

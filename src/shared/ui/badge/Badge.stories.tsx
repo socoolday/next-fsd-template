@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
-import { Icon } from "@/shared/ui/icon";
+import { Icon } from "../icon/Icon";
 import { Badge } from "./Badge";
 
 /**
@@ -151,19 +151,19 @@ export const Dismissible: Story = {
     <div className="flex flex-wrap gap-2">
       <Badge variant="secondary" className="gap-1 pr-1">
         React
-        <button className="ml-1 rounded-full hover:bg-muted p-0.5">
+        <button className="ml-1 rounded-full hover:bg-muted p-0.5" title="닫기">
           <Icon name="X" className="h-3 w-3" />
         </button>
       </Badge>
       <Badge variant="secondary" className="gap-1 pr-1">
         TypeScript
-        <button className="ml-1 rounded-full hover:bg-muted p-0.5">
+        <button className="ml-1 rounded-full hover:bg-muted p-0.5" title="닫기">
           <Icon name="X" className="h-3 w-3" />
         </button>
       </Badge>
       <Badge variant="secondary" className="gap-1 pr-1">
         Next.js
-        <button className="ml-1 rounded-full hover:bg-muted p-0.5">
+        <button className="ml-1 rounded-full hover:bg-muted p-0.5" title="닫기">
           <Icon name="X" className="h-3 w-3" />
         </button>
       </Badge>
@@ -182,7 +182,7 @@ export const CustomColors: Story = {
       <Badge className="bg-indigo-500 hover:bg-indigo-600">Indigo</Badge>
       <Badge className="bg-cyan-500 hover:bg-cyan-600">Cyan</Badge>
       <Badge className="bg-orange-500 hover:bg-orange-600">Orange</Badge>
-      <Badge className="bg-gradient-to-r from-pink-500 to-purple-500 hover:from-pink-600 hover:to-purple-600">
+      <Badge className="bg-linear-to-r from-pink-500 to-purple-500 hover:from-pink-600 hover:to-purple-600">
         Gradient
       </Badge>
     </div>
@@ -222,7 +222,7 @@ export const Priority: Story = {
   render: () => (
     <div className="flex flex-wrap gap-2">
       <Badge className="bg-red-600 hover:bg-red-700">
-        <Icon name="AlertTriangle" className="mr-1 h-3 w-3" />
+        <Icon name="TriangleAlert" className="mr-1 h-3 w-3" />
         긴급
       </Badge>
       <Badge className="bg-orange-500 hover:bg-orange-600">

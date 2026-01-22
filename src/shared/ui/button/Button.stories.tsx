@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
-import { Icon } from "@/shared/ui/icon";
+import { Icon } from "../icon/Icon";
 import { Button } from "./Button";
+import React from "react";
 
 /**
  * Button 컴포넌트는 사용자 인터랙션을 위한 기본적인 버튼 요소입니다.
@@ -176,7 +177,7 @@ export const Loading: Story = {
     disabled: true,
     children: (
       <>
-        <Icon name="Loader2" className="h-4 w-4 animate-spin" />
+        <Icon name="LoaderCircle" className="h-4 w-4 animate-spin" />
         로딩 중...
       </>
     ),
@@ -289,11 +290,11 @@ export const ActionButtons: Story = {
         저장
       </Button>
       <Button variant="outline">
-        <Icon name="FileEdit" className="h-4 w-4" />
+        <Icon name="Pencil" className="h-4 w-4" />
         편집
       </Button>
       <Button variant="destructive">
-        <Icon name="Trash2" className="h-4 w-4" />
+        <Icon name="Trash" className="h-4 w-4" />
         삭제
       </Button>
     </div>
@@ -332,15 +333,15 @@ export const LoadingStates: Story = {
   render: () => (
     <div className="flex gap-2">
       <Button disabled>
-        <Icon name="Loader2" className="h-4 w-4 animate-spin" />
+        <Icon name="LoaderCircle" className="h-4 w-4 animate-spin" />
         저장 중...
       </Button>
       <Button variant="outline" disabled>
-        <Icon name="Loader2" className="h-4 w-4 animate-spin" />
+        <Icon name="LoaderCircle" className="h-4 w-4 animate-spin" />
         처리 중...
       </Button>
       <Button variant="destructive" disabled>
-        <Icon name="Loader2" className="h-4 w-4 animate-spin" />
+        <Icon name="LoaderCircle" className="h-4 w-4 animate-spin" />
         삭제 중...
       </Button>
     </div>
@@ -364,13 +365,16 @@ export const Toolbar: Story = {
       </Button>
       <div className="w-px h-6 bg-border mx-1" />
       <Button variant="ghost" size="icon">
-        <Icon name="AlignLeft" className="h-4 w-4" />
+        <Icon name="TextAlignJustify" className="h-4 w-4" />
       </Button>
       <Button variant="ghost" size="icon">
-        <Icon name="AlignCenter" className="h-4 w-4" />
+        <Icon name="TextAlignCenter" className="h-4 w-4" />
       </Button>
       <Button variant="ghost" size="icon">
-        <Icon name="AlignRight" className="h-4 w-4" />
+        <Icon name="TextAlignStart" className="h-4 w-4" />
+      </Button>
+      <Button variant="ghost" size="icon">
+        <Icon name="TextAlignEnd" className="h-4 w-4" />
       </Button>
       <div className="w-px h-6 bg-border mx-1" />
       <Button variant="ghost" size="icon">
@@ -427,7 +431,7 @@ export const FloatingActionButton: Story = {
 export const ExtendedFab: Story = {
   render: () => (
     <Button className="rounded-full shadow-lg px-6">
-      <Icon name="Edit" className="h-4 w-4" />
+      <Icon name="Pencil" className="h-4 w-4" />
       새 글 작성
     </Button>
   ),

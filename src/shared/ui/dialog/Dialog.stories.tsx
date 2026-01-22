@@ -1,3 +1,4 @@
+import React from "react";
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
 import {
   Dialog,
@@ -9,9 +10,9 @@ import {
   DialogTrigger,
   DialogClose,
 } from "./Dialog";
-import { Button } from "@/shared/ui/button";
-import { Input } from "@/shared/ui/input";
-import { Label } from "@/shared/ui/label";
+import { Button } from "../button/Button";
+import { Input } from "../input/Input";
+import { Label } from "../label";
 
 /**
  * Dialog 컴포넌트는 모달 형태의 대화상자를 표시합니다.
@@ -32,7 +33,7 @@ const meta: Meta<typeof Dialog> = {
 };
 
 export default meta;
-type Story = StoryObj<typeof meta>;
+type Story = StoryObj<typeof Dialog>;
 
 /**
  * 기본 대화상자
@@ -175,6 +176,102 @@ export const LongContent: Story = {
             <Button variant="outline">닫기</Button>
           </DialogClose>
           <Button>동의</Button>
+        </DialogFooter>
+      </DialogContent>
+    </Dialog>
+  ),
+};
+
+/**
+ * 배경 오버레이 없는 대화상자
+ * showOverlay={false}로 배경 검은색 오버레이를 제거합니다.
+ */
+export const NoOverlay: Story = {
+  render: () => (
+    <Dialog>
+      <DialogTrigger asChild>
+        <Button variant="outline">오버레이 없는 대화상자</Button>
+      </DialogTrigger>
+      <DialogContent showOverlay={false} className="sm:max-w-[425px]">
+        <DialogHeader>
+          <DialogTitle>배경 없는 대화상자</DialogTitle>
+          <DialogDescription>
+            배경 오버레이가 없어 뒤쪽 콘텐츠가 보입니다.
+          </DialogDescription>
+        </DialogHeader>
+        <div className="py-4">
+          <p className="text-sm text-muted-foreground">
+            이 대화상자는 배경 검은색 오버레이가 없습니다.
+            뒤쪽 콘텐츠와 상호작용할 수 있습니다.
+          </p>
+        </div>
+        <DialogFooter>
+          <DialogClose asChild>
+            <Button>확인</Button>
+          </DialogClose>
+        </DialogFooter>
+      </DialogContent>
+    </Dialog>
+  ),
+};
+
+/**
+ * 닫기 버튼 없는 대화상자
+ * showCloseButton={false}로 우측 상단 닫기 버튼을 제거합니다.
+ */
+export const NoCloseButton: Story = {
+  render: () => (
+    <Dialog>
+      <DialogTrigger asChild>
+        <Button variant="outline">닫기 버튼 없는 대화상자</Button>
+      </DialogTrigger>
+      <DialogContent showCloseButton={false} className="sm:max-w-[425px]">
+        <DialogHeader>
+          <DialogTitle>닫기 버튼 없음</DialogTitle>
+          <DialogDescription>
+            우측 상단에 닫기(X) 버튼이 없습니다.
+          </DialogDescription>
+        </DialogHeader>
+        <div className="py-4">
+          <p className="text-sm text-muted-foreground">
+            이 대화상자는 푸터의 버튼이나 ESC 키로만 닫을 수 있습니다.
+          </p>
+        </div>
+        <DialogFooter>
+          <DialogClose asChild>
+            <Button variant="outline">취소</Button>
+          </DialogClose>
+          <Button>확인</Button>
+        </DialogFooter>
+      </DialogContent>
+    </Dialog>
+  ),
+};
+
+/**
+ * 미니멀 대화상자 (오버레이 + 닫기 버튼 없음)
+ */
+export const Minimal: Story = {
+  render: () => (
+    <Dialog>
+      <DialogTrigger asChild>
+        <Button variant="secondary">미니멀 대화상자</Button>
+      </DialogTrigger>
+      <DialogContent 
+        showOverlay={false} 
+        showCloseButton={false} 
+        className="sm:max-w-[350px]"
+      >
+        <DialogHeader>
+          <DialogTitle>미니멀 스타일</DialogTitle>
+          <DialogDescription>
+            오버레이와 닫기 버튼이 모두 없는 깔끔한 스타일입니다.
+          </DialogDescription>
+        </DialogHeader>
+        <DialogFooter>
+          <DialogClose asChild>
+            <Button className="w-full">확인</Button>
+          </DialogClose>
         </DialogFooter>
       </DialogContent>
     </Dialog>

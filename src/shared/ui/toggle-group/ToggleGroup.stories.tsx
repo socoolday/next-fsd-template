@@ -34,7 +34,7 @@ const meta: Meta<typeof ToggleGroup> = {
 };
 
 export default meta;
-type Story = StoryObj<typeof meta>;
+type Story = StoryObj<typeof ToggleGroup>;
 
 /**
  * 단일 선택 모드
@@ -43,13 +43,13 @@ export const Single: Story = {
   render: () => (
     <ToggleGroup type="single" defaultValue="center">
       <ToggleGroupItem value="left" aria-label="Align left">
-        <Icon name="AlignLeft" className="h-4 w-4" />
+        <Icon name="TextAlignStart" className="h-4 w-4" />
       </ToggleGroupItem>
       <ToggleGroupItem value="center" aria-label="Align center">
-        <Icon name="AlignCenter" className="h-4 w-4" />
+        <Icon name="TextAlignCenter" className="h-4 w-4" />
       </ToggleGroupItem>
       <ToggleGroupItem value="right" aria-label="Align right">
-        <Icon name="AlignRight" className="h-4 w-4" />
+        <Icon name="TextAlignEnd" className="h-4 w-4" />
       </ToggleGroupItem>
     </ToggleGroup>
   ),
@@ -81,16 +81,16 @@ export const Outline: Story = {
   render: () => (
     <ToggleGroup type="single" variant="outline" defaultValue="center">
       <ToggleGroupItem value="left" aria-label="Align left">
-        <Icon name="AlignLeft" className="h-4 w-4" />
+        <Icon name="TextAlignStart" className="h-4 w-4" />
       </ToggleGroupItem>
       <ToggleGroupItem value="center" aria-label="Align center">
-        <Icon name="AlignCenter" className="h-4 w-4" />
+        <Icon name="TextAlignCenter" className="h-4 w-4" />
       </ToggleGroupItem>
       <ToggleGroupItem value="right" aria-label="Align right">
-        <Icon name="AlignRight" className="h-4 w-4" />
+        <Icon name="TextAlignEnd" className="h-4 w-4" />
       </ToggleGroupItem>
       <ToggleGroupItem value="justify" aria-label="Align justify">
-        <Icon name="AlignJustify" className="h-4 w-4" />
+        <Icon name="TextAlignJustify" className="h-4 w-4" />
       </ToggleGroupItem>
     </ToggleGroup>
   ),
@@ -104,35 +104,35 @@ export const Sizes: Story = {
     <div className="flex flex-col gap-4">
       <ToggleGroup type="single" size="sm">
         <ToggleGroupItem value="left" aria-label="Align left">
-          <Icon name="AlignLeft" className="h-4 w-4" />
+          <Icon name="TextAlignStart" className="h-4 w-4" />
         </ToggleGroupItem>
         <ToggleGroupItem value="center" aria-label="Align center">
-          <Icon name="AlignCenter" className="h-4 w-4" />
+          <Icon name="TextAlignCenter" className="h-4 w-4" />
         </ToggleGroupItem>
         <ToggleGroupItem value="right" aria-label="Align right">
-          <Icon name="AlignRight" className="h-4 w-4" />
+          <Icon name="TextAlignEnd" className="h-4 w-4" />
         </ToggleGroupItem>
       </ToggleGroup>
       <ToggleGroup type="single" size="default">
         <ToggleGroupItem value="left" aria-label="Align left">
-          <Icon name="AlignLeft" className="h-4 w-4" />
+          <Icon name="TextAlignStart" className="h-4 w-4" />
         </ToggleGroupItem>
         <ToggleGroupItem value="center" aria-label="Align center">
-          <Icon name="AlignCenter" className="h-4 w-4" />
+          <Icon name="TextAlignCenter" className="h-4 w-4" />
         </ToggleGroupItem>
         <ToggleGroupItem value="right" aria-label="Align right">
-          <Icon name="AlignRight" className="h-4 w-4" />
+          <Icon name="TextAlignEnd" className="h-4 w-4" />
         </ToggleGroupItem>
       </ToggleGroup>
       <ToggleGroup type="single" size="lg">
         <ToggleGroupItem value="left" aria-label="Align left">
-          <Icon name="AlignLeft" className="h-4 w-4" />
+          <Icon name="TextAlignStart" className="h-4 w-4" />
         </ToggleGroupItem>
         <ToggleGroupItem value="center" aria-label="Align center">
-          <Icon name="AlignCenter" className="h-4 w-4" />
+          <Icon name="TextAlignCenter" className="h-4 w-4" />
         </ToggleGroupItem>
         <ToggleGroupItem value="right" aria-label="Align right">
-          <Icon name="AlignRight" className="h-4 w-4" />
+          <Icon name="TextAlignEnd" className="h-4 w-4" />
         </ToggleGroupItem>
       </ToggleGroup>
     </div>
@@ -146,13 +146,13 @@ export const WithDisabled: Story = {
   render: () => (
     <ToggleGroup type="single" defaultValue="center">
       <ToggleGroupItem value="left" aria-label="Align left">
-        <Icon name="AlignLeft" className="h-4 w-4" />
+        <Icon name="TextAlignStart" className="h-4 w-4" />
       </ToggleGroupItem>
       <ToggleGroupItem value="center" aria-label="Align center">
-        <Icon name="AlignCenter" className="h-4 w-4" />
+        <Icon name="TextAlignCenter" className="h-4 w-4" />
       </ToggleGroupItem>
       <ToggleGroupItem value="right" aria-label="Align right" disabled>
-        <Icon name="AlignRight" className="h-4 w-4" />
+        <Icon name="TextAlignEnd" className="h-4 w-4" />
       </ToggleGroupItem>
     </ToggleGroup>
   ),

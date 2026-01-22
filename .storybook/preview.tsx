@@ -1,5 +1,6 @@
 import React from "react";
 import type { Preview } from "@storybook/nextjs-vite";
+import { ThemeProvider } from "../src/shared/lib";
 import "../src/app/globals.css";
 
 /**
@@ -7,29 +8,35 @@ import "../src/app/globals.css";
  */
 const withTheme = (Story: React.ComponentType, context: { globals: { theme: string; themeColor: string } }) => {
   const { theme, themeColor } = context.globals;
+  const [currentTheme, setCurrentTheme] = React.useState(theme || "system");
 
+  // Storybook globals의 theme 변경 감지
+  React.useEffect(() => {
+    setCurrentTheme(theme || "system");
+  }, [theme]);
+
+  // 테마 색상 적용
   React.useEffect(() => {
     const html = document.documentElement;
-    
-    // 다크/라이트 모드 적용
-    if (theme === "dark") {
-      html.classList.add("dark");
-    } else {
-      html.classList.remove("dark");
-    }
-    
-    // 테마 색상 적용
     if (themeColor && themeColor !== "default") {
       html.setAttribute("data-theme", themeColor);
     } else {
       html.removeAttribute("data-theme");
     }
-  }, [theme, themeColor]);
+  }, [themeColor]);
 
   return (
-    <div className="min-h-[100px] p-4 bg-background text-foreground">
-      <Story />
-    </div>
+    <ThemeProvider
+      key={currentTheme} // theme 변경 시 재마운트하여 테마 적용
+      attribute="class"
+      defaultTheme={currentTheme}
+      enableSystem
+      disableTransitionOnChange
+    >
+      <div className="min-h-[100px] p-4 bg-background text-foreground">
+        <Story />
+      </div>
+    </ThemeProvider>
   );
 };
 

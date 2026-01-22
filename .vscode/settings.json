@@ -1,0 +1,21 @@
+{
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "typescript.enablePromptUseWorkspaceTsdk": true,
+  "typescript.preferences.importModuleSpecifier": "non-relative",
+  "files.associations": {
+    "*.stories.tsx": "typescriptreact",
+    "*.stories.ts": "typescript"
+  },
+  "typescript.preferences.includePackageJsonAutoImports": "on",
+  "typescript.tsserver.watchOptions": {
+    "excludeDirectories": ["**/node_modules", "**/.next"]
+  },
+  "typescript.preferences.useLabelDetailsInCompletionEntries": true,
+  "typescript.suggest.autoImports": true,
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
+}

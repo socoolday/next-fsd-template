@@ -257,7 +257,7 @@ export const SearchInput: Story = {
         className="pl-10 pr-10"
         placeholder="검색..."
       />
-      <button className="absolute right-3 top-1/2 -translate-y-1/2">
+      <button type="button" className="absolute right-3 top-1/2 -translate-y-1/2 cursor-pointer" title="검색 취소">
         <Icon name="X" className="h-4 w-4 text-muted-foreground hover:text-foreground" />
       </button>
     </div>
@@ -278,7 +278,8 @@ export const PasswordToggle: Story = {
         />
         <button
           type="button"
-          className="absolute right-3 top-1/2 -translate-y-1/2"
+          className="absolute right-3 top-1/2 -translate-y-1/2 cursor-pointer"
+          title="비밀번호 토글"
         >
           <Icon name="Eye" className="h-4 w-4 text-muted-foreground hover:text-foreground" />
         </button>
@@ -306,7 +307,7 @@ export const WithCounter: Story = {
 export const WithPrefix: Story = {
   render: () => (
     <div className="flex w-[300px]">
-      <span className="inline-flex items-center px-3 rounded-l-md border border-r-0 border-input bg-muted text-muted-foreground text-sm">
+      <span className="inline-flex items-center px-3 rounded-l-md border border-r-0 border-input bg-muted text-muted-foreground text-sm shadow-sm">
         https://
       </span>
       <Input className="rounded-l-none" placeholder="example.com" />
@@ -321,7 +322,7 @@ export const WithSuffix: Story = {
   render: () => (
     <div className="flex w-[300px]">
       <Input className="rounded-r-none" placeholder="0" type="number" />
-      <span className="inline-flex items-center px-3 rounded-r-md border border-l-0 border-input bg-muted text-muted-foreground text-sm">
+      <span className="inline-flex items-center px-3 rounded-r-md border border-l-0 border-input bg-muted text-muted-foreground text-sm shadow-sm">
         원
       </span>
     </div>
@@ -336,7 +337,7 @@ export const Loading: Story = {
     <div className="relative w-[300px]">
       <Input placeholder="검색 중..." disabled />
       <Icon
-        name="Loader2"
+        name="Loader"
         className="absolute right-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground animate-spin"
       />
     </div>

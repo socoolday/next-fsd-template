@@ -389,7 +389,7 @@ export const ProjectTabs: Story = {
                 </Badge>
               </div>
               <Button variant="ghost" size="icon">
-                <Icon name="MoreHorizontal" className="h-4 w-4" />
+                <Icon name="Ellipsis" className="h-4 w-4" />
               </Button>
             </CardContent>
           </Card>

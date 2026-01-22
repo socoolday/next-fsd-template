@@ -12,7 +12,7 @@ import {
 import { Badge } from "@/shared/ui/badge";
 import { Button } from "@/shared/ui/button";
 import { Checkbox } from "@/shared/ui/checkbox";
-import { Avatar, AvatarFallback, AvatarImage } from "@/shared/ui/avatar";
+import { Avatar, AvatarFallback } from "@/shared/ui/avatar";
 import { Icon } from "@/shared/ui/icon";
 
 const meta: Meta<typeof Table> = {
@@ -171,10 +171,10 @@ export const WithActions: Story = {
             <TableCell>
               <div className="flex gap-1">
                 <Button variant="ghost" size="icon">
-                  <Icon name="Edit" className="h-4 w-4" />
+                  <Icon name="Pencil" className="h-4 w-4" />
                 </Button>
                 <Button variant="ghost" size="icon">
-                  <Icon name="Trash2" className="h-4 w-4" />
+                  <Icon name="Trash" className="h-4 w-4" />
                 </Button>
               </div>
             </TableCell>
@@ -229,7 +229,7 @@ export const UserList: Story = {
               </TableCell>
               <TableCell className="text-right">
                 <Button variant="ghost" size="sm">
-                  <Icon name="MoreHorizontal" className="h-4 w-4" />
+                  <Icon name="Ellipsis" className="h-4 w-4" />
                 </Button>
               </TableCell>
             </TableRow>

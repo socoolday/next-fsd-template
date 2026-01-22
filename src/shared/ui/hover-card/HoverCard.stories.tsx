@@ -72,7 +72,7 @@ export const UserProfile: Story = {
       <HoverCardContent className="w-80">
         <div className="flex justify-between space-x-4">
           <Avatar className="h-12 w-12">
-            <AvatarFallback className="bg-gradient-to-br from-blue-500 to-purple-500 text-white">
+            <AvatarFallback className="bg-linear-to-br from-blue-500 to-purple-500 text-white">
               홍
             </AvatarFallback>
           </Avatar>

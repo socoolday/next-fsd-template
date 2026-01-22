@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
-import { ThemeToggle } from "./ThemeToggle";
+import { ThemeToggle, ThemeToggleSimple } from "./ThemeToggle";
 import { ThemeColorPicker } from "./ThemeColorPicker";
 
 /**
@@ -24,10 +24,27 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 /**
- * 기본 테마 토글
+ * 기본 테마 토글 (다크/라이트/시스템)
  */
 export const Default: Story = {
   render: () => <ThemeToggle />,
+};
+
+/**
+ * 다크/라이트만 전환하는 버전
+ * 드롭다운 메뉴에서 시스템 옵션이 없습니다.
+ */
+export const LightDarkOnly: Story = {
+  render: () => <ThemeToggle showSystem={false} />,
+};
+
+/**
+ * 간단한 테마 토글
+ * 클릭 시 바로 다크/라이트 모드를 전환합니다.
+ * 드롭다운 메뉴 없이 바로 토글됩니다.
+ */
+export const Simple: Story = {
+  render: () => <ThemeToggleSimple />,
 };
 
 /**

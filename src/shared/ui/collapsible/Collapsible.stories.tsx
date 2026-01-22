@@ -1,3 +1,4 @@
+
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
 import { useState } from "react";
 import { Icon } from "@/shared/ui/icon";
@@ -39,7 +40,7 @@ export const Default: Story = {
         className="w-[350px] space-y-2"
       >
         <div className="flex items-center justify-between space-x-4 px-4">
-          <h4 className="text-sm font-semibold">
+          <h4 className="text-sm font-semibold whitespace-nowrap">
             @peduarte 님이 3개의 저장소를 고정했습니다
           </h4>
           <CollapsibleTrigger asChild>
@@ -152,7 +153,7 @@ export const FilterPanel: Story = {
         <CollapsibleContent className="mt-4 space-y-4">
           <div className="space-y-2">
             <label className="text-sm font-medium">카테고리</label>
-            <select className="w-full rounded-md border p-2 text-sm">
+            <select className="w-full rounded-md border p-2 text-sm" title="카테고리 선택">
               <option>전체</option>
               <option>전자기기</option>
               <option>의류</option>

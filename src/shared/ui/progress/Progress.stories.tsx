@@ -214,15 +214,15 @@ export const Gradient: Story = {
     <div className="w-[300px] space-y-4">
       <Progress
         value={75}
-        className="[&>div]:bg-gradient-to-r [&>div]:from-blue-500 [&>div]:to-purple-500"
+        className="[&>div]:bg-linear-to-r [&>div]:from-blue-500 [&>div]:to-purple-500"
       />
       <Progress
         value={60}
-        className="[&>div]:bg-gradient-to-r [&>div]:from-green-400 [&>div]:to-blue-500"
+        className="[&>div]:bg-linear-to-r [&>div]:from-green-400 [&>div]:to-blue-500"
       />
       <Progress
         value={90}
-        className="[&>div]:bg-gradient-to-r [&>div]:from-pink-500 [&>div]:to-orange-500"
+        className="[&>div]:bg-linear-to-r [&>div]:from-pink-500 [&>div]:to-orange-500"
       />
     </div>
   ),
@@ -299,7 +299,7 @@ export const Striped: Story = {
     <div className="w-[300px] space-y-4">
       <Progress
         value={60}
-        className="[&>div]:bg-[length:1rem_1rem] [&>div]:bg-[linear-gradient(45deg,rgba(255,255,255,.15)_25%,transparent_25%,transparent_50%,rgba(255,255,255,.15)_50%,rgba(255,255,255,.15)_75%,transparent_75%,transparent)] [&>div]:animate-[progress-stripes_1s_linear_infinite]"
+        className="[&>div]:bg-size-[1rem_1rem] [&>div]:bg-[linear-gradient(45deg,rgba(255,255,255,.15)_25%,transparent_25%,transparent_50%,rgba(255,255,255,.15)_50%,rgba(255,255,255,.15)_75%,transparent_75%,transparent)] [&>div]:animate-[progress-stripes_1s_linear_infinite]"
       />
       <style>{`
         @keyframes progress-stripes {

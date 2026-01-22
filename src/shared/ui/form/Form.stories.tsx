@@ -1,5 +1,3 @@
-"use client";
-
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -158,15 +156,17 @@ export const ProfileForm: Story = {
             control={form.control}
             name="terms"
             render={({ field }) => (
-              <FormItem className="flex flex-row items-start space-x-3 space-y-0">
-                <FormControl>
-                  <Checkbox
-                    checked={field.value}
-                    onCheckedChange={field.onChange}
-                  />
-                </FormControl>
-                <div className="space-y-1 leading-none">
+              <FormItem className="flex flex-col items-start">
+                <div className="flex items-center space-x-2">
+                  <FormControl>
+                    <Checkbox
+                      checked={field.value}
+                      onCheckedChange={field.onChange}
+                      />
+                  </FormControl>
                   <FormLabel>이용약관에 동의합니다</FormLabel>
+                </div>
+                <div className="space-y-1 leading-none pl-6">
                   <FormDescription>
                     서비스 이용약관 및 개인정보처리방침에 동의합니다.
                   </FormDescription>

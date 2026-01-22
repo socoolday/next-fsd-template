@@ -72,7 +72,7 @@ export const WithIconButton: Story = {
       <Tooltip>
         <TooltipTrigger asChild>
           <Button variant="outline" size="icon">
-            <Icon name="Edit" className="h-4 w-4" />
+            <Icon name="Pencil" className="h-4 w-4" />
           </Button>
         </TooltipTrigger>
         <TooltipContent>
@@ -188,7 +188,7 @@ export const WithIcon: Story = {
       </TooltipTrigger>
       <TooltipContent>
         <div className="flex items-center gap-2">
-          <Icon name="AlertCircle" className="h-4 w-4" />
+          <Icon name="TriangleAlert" className="h-4 w-4" />
           <span>중요한 정보입니다</span>
         </div>
       </TooltipContent>
@@ -236,7 +236,7 @@ export const Toolbar: Story = {
       <Tooltip>
         <TooltipTrigger asChild>
           <Button variant="ghost" size="icon">
-            <Icon name="AlignLeft" className="h-4 w-4" />
+            <Icon name="TextAlignStart" className="h-4 w-4" />
           </Button>
         </TooltipTrigger>
         <TooltipContent>
@@ -246,7 +246,7 @@ export const Toolbar: Story = {
       <Tooltip>
         <TooltipTrigger asChild>
           <Button variant="ghost" size="icon">
-            <Icon name="AlignCenter" className="h-4 w-4" />
+            <Icon name="TextAlignCenter" className="h-4 w-4" />
           </Button>
         </TooltipTrigger>
         <TooltipContent>
@@ -256,7 +256,7 @@ export const Toolbar: Story = {
       <Tooltip>
         <TooltipTrigger asChild>
           <Button variant="ghost" size="icon">
-            <Icon name="AlignRight" className="h-4 w-4" />
+            <Icon name="TextAlignEnd" className="h-4 w-4" />
           </Button>
         </TooltipTrigger>
         <TooltipContent>

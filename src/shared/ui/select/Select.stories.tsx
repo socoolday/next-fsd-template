@@ -301,7 +301,7 @@ export const PrioritySelect: Story = {
       <SelectContent>
         <SelectItem value="urgent">
           <div className="flex items-center gap-2 text-red-600">
-            <Icon name="AlertTriangle" className="h-4 w-4" />
+            <Icon name="TriangleAlert" className="h-4 w-4" />
             긴급
           </div>
         </SelectItem>

@@ -1,3 +1,4 @@
+
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
 import {
   Card,
@@ -7,13 +8,13 @@ import {
   CardHeader,
   CardTitle,
 } from "./Card";
-import { Button } from "@/shared/ui/button";
-import { Input } from "@/shared/ui/input";
-import { Label } from "@/shared/ui/label";
-import { Badge } from "@/shared/ui/badge";
-import { Avatar, AvatarFallback, AvatarImage } from "@/shared/ui/avatar";
-import { Progress } from "@/shared/ui/progress";
-import { Icon } from "@/shared/ui/icon";
+import { Button } from "../button/Button";
+import { Input } from "../input/Input";
+import { Label } from "../label";
+import { Badge } from "../badge/Badge";
+import { Avatar, AvatarFallback, AvatarImage } from "../avatar/Avatar";
+import { Progress } from "../progress/Progress";
+import { Icon } from "../icon/Icon";
 
 /**
  * Card 컴포넌트는 관련 콘텐츠를 그룹화하여 표시하는 컨테이너입니다.
@@ -240,7 +241,7 @@ export const ProjectProgress: Story = {
         </div>
         <div className="flex items-center gap-4 text-sm">
           <div className="flex items-center gap-1">
-            <Icon name="CheckCircle2" className="h-4 w-4 text-green-500" />
+            <Icon name="Check" className="h-4 w-4 text-green-500" />
             <span>17 완료</span>
           </div>
           <div className="flex items-center gap-1">
@@ -452,7 +453,7 @@ export const ActionCard: Story = {
         <div className="flex items-center justify-between">
           <CardTitle>할 일 목록</CardTitle>
           <Button variant="ghost" size="icon">
-            <Icon name="MoreHorizontal" className="h-4 w-4" />
+            <Icon name="MoveHorizontal" className="h-4 w-4" />
           </Button>
         </div>
       </CardHeader>

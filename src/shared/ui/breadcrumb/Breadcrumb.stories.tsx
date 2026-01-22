@@ -1,3 +1,4 @@
+import React from "react";
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
 import {
   Breadcrumb,
@@ -24,7 +25,7 @@ const meta: Meta<typeof Breadcrumb> = {
 };
 
 export default meta;
-type Story = StoryObj<typeof meta>;
+type Story = StoryObj<typeof Breadcrumb>;
 
 export const Default: Story = {
   render: () => (

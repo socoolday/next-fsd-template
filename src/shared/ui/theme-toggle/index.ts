@@ -1,2 +1,2 @@
-export { ThemeToggle } from "./ThemeToggle";
+export { ThemeToggle, ThemeToggleSimple } from "./ThemeToggle";
 export { ThemeColorPicker } from "./ThemeColorPicker";

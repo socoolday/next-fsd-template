@@ -4,6 +4,12 @@ export { Button, buttonVariants, type ButtonProps } from "./button";
 // Input
 export { Input, type InputProps } from "./input";
 
+// FileUpload
+export { FileUpload, type FileUploadProps } from "./file-upload";
+
+// Empty
+export { Empty, emptyVariants, type EmptyProps } from "./empty";
+
 // Textarea
 export { Textarea, type TextareaProps } from "./textarea";
 
